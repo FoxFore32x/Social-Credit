@@ -1,7 +1,5 @@
 import disnake
 from disnake.ext import commands
-import asyncio
-from disnake.errors import HTTPException
 import json
 import os
 import webserver
@@ -477,21 +475,5 @@ if __name__ == "__main__":
     if BOT_TOKEN == "YOUR_BOT_TOKEN_HERE":
         print("!!! ATTENTION, COMRADE: PROVIDE THE BOT'S SECRET KEY (BOT_TOKEN) !!!")
     else:
-        webserver.keep_alive()
-        
-        # Add retry logic for rate limits
-        max_retries = 5
-        retry_delay = 60  # Start with 60 seconds
-        
-        for attempt in range(max_retries):
-            try:
-                bot.run(BOT_TOKEN)
-                break
-            except (HTTPException, RateLimited) as e:
-                if attempt < max_retries - 1:
-                    print(f"Rate limited! Attempt {attempt + 1}/{max_retries}. Waiting {retry_delay} seconds...")
-                    time.sleep(retry_delay)
-                    retry_delay *= 2  # Exponential backoff
-                else:
-                    print("Max retries reached. Please try again later.")
-                    raise
+        webserver.keep_alive() # Start the web server to keep the bot alive
+        bot.run(BOT_TOKEN)
