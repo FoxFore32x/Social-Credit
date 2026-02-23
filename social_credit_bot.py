@@ -2,6 +2,7 @@ import disnake
 from disnake.ext import commands
 import json
 import os
+import webserver
 from typing import Optional, Tuple
 import re
 import datetime # For timeouts
@@ -11,7 +12,7 @@ DATA_FILE = "social_credits.json"
 FORBIDDEN_STATS_FILE = "forbidden_word_stats.json"
 
 DEFAULT_CREDITS = 1000
-BOT_TOKEN = os.environ['discordkey'] # IMPORTANT: Replace with your bot token!
+BOT_TOKEN = os.environ['discordkey'] #"MTQ3NTMwOTk1ODM2NjEwMTU4NQ.GPLro4.7i5JyKmF9JrfoiTCTjK_DGcRNyLBhYCgxaTbjg" # # IMPORTANT: Replace with your bot token!
 
 # Example forbidden pattern (adjust to your needs)
 # This example pattern looks for "badword" and its variations
@@ -27,10 +28,10 @@ BOT_TOKEN = os.environ['discordkey'] # IMPORTANT: Replace with your bot token!
 # )
 # For now, let's use a simpler placeholder for demonstration. Replace with your actual pattern.
 FORBIDDEN_PATTERN_REGEX = re.compile(
-    r"\b(examplebadword1|examplebadword2)\b", # Replace with actual words/patterns
+    r"\b(el humita|tranny|boing|roleadores|odio china|bodrina|nigga|nigger|tiananmén|puta china|china caca|chinakk|puto chino|winnie poo|winnie pooh|winnie the pooh|pooh|putos chinos|china fea|chino feo|chinos feos|faggot|maricón|maricon|pizza tower bodrio|pizza tower malo)\b", # Replace with actual words/patterns
     re.IGNORECASE | re.UNICODE
 )
-FORBIDDEN_WORD_PENALTY = 1000 # Penalty for forbidden words
+FORBIDDEN_WORD_PENALTY = 100 # Penalty for forbidden words
 
 # --- Embed Colors ---
 EMBED_COLOR_SUCCESS = 0x2ecc71 # Green
@@ -474,4 +475,5 @@ if __name__ == "__main__":
     if BOT_TOKEN == "YOUR_BOT_TOKEN_HERE":
         print("!!! ATTENTION, COMRADE: PROVIDE THE BOT'S SECRET KEY (BOT_TOKEN) !!!")
     else:
+        webserver.keep_alive() # Start the web server to keep the bot alive
         bot.run(BOT_TOKEN)
