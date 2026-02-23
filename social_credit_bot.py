@@ -12,7 +12,7 @@ DATA_FILE = "social_credits.json"
 FORBIDDEN_STATS_FILE = "forbidden_word_stats.json"
 
 DEFAULT_CREDITS = 1000
-BOT_TOKEN = os.environ['discordkey'] #"MTQ3NTMwOTk1ODM2NjEwMTU4NQ.GPLro4.7i5JyKmF9JrfoiTCTjK_DGcRNyLBhYCgxaTbjg" # # IMPORTANT: Replace with your bot token!
+BOT_TOKEN = os.environ['discordkey'] # IMPORTANT: Replace with your bot token!
 
 # Example forbidden pattern (adjust to your needs)
 # This example pattern looks for "badword" and its variations
