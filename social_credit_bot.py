@@ -1,7 +1,7 @@
 import disnake
 from disnake.ext import commands
 import asyncio
-from disnake.errors import HTTPException, RateLimited
+from disnake.errors import HTTPException
 import json
 import os
 import webserver
