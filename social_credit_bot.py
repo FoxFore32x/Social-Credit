@@ -2,7 +2,6 @@ import disnake
 from disnake.ext import commands
 import json
 import os
-import webserver
 from typing import Optional, Tuple
 import re
 import datetime # For timeouts
@@ -475,5 +474,4 @@ if __name__ == "__main__":
     if BOT_TOKEN == "YOUR_BOT_TOKEN_HERE":
         print("!!! ATTENTION, COMRADE: PROVIDE THE BOT'S SECRET KEY (BOT_TOKEN) !!!")
     else:
-        webserver.keep_alive() # Start the web server to keep the bot alive
         bot.run(BOT_TOKEN)
